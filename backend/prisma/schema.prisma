@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Game {
+  id          String    @id @default(cuid())
+  title       String    @db.VarChar(150)
+  description String?   @db.Text
+  coverUrl    String?   @db.VarChar(500)
+  releaseDate DateTime? @db.Date
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([title])
+}
