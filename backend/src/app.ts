@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import gameRoutes from "./modules/games/game.routes.js";
+import authRoutes from "./modules/auth/auth.routes.js";
 const app = express();
 
 app.use(cors());
@@ -13,4 +14,5 @@ app.get("/health", (_req, res) => {
   });
 });
 app.use("/games", gameRoutes);
+app.use("/auth", authRoutes);
 export default app;

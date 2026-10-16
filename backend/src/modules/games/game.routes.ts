@@ -125,7 +125,6 @@ gameRoutes.post("/import", async (req, res) => {
   }
 });
 
-// Get games saved in our MySQL database
 gameRoutes.get("/", async (_req, res) => {
   try {
     const games = await prisma.game.findMany({
